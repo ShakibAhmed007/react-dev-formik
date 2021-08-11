@@ -3,7 +3,6 @@ import { Formik } from 'formik';
 
 const BasicForm = () => (
   <div>
-    <h1>Anywhere in your app!</h1>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={values => {
@@ -49,6 +48,7 @@ const BasicForm = () => (
             value={values.password}
           />
           {errors.password && touched.password && errors.password}
+          <br />
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>

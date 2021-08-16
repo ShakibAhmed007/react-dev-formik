@@ -90,7 +90,7 @@ const BasicFormValidationByYup = () => {
         {...formik.getFieldProps('toggleCheckbox')}
       />
       <br />
-      <label for="file">File upload</label>
+      <label for="file">File:</label>
       <input
         id="file"
         name="file"

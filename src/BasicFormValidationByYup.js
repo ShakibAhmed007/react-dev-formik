@@ -101,7 +101,6 @@ const BasicFormValidationByYup = () => {
           formik.setFieldValue('file', event.currentTarget.files[0]);
         }}
       />
-      <p>{formik.file ? formik.file.name : ''}</p>
       <br />
       <label for="file">Multiple File:</label>
       <input

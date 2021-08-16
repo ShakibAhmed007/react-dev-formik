@@ -7,7 +7,7 @@ import ImageUpload from './ImageUpload';
 export default function App() {
   return (
     <div>
-      <h1>Formik Example</h1>
+      <h1>Basic form using Formik</h1>
       <BasicForm />
       <hr />
       <h1>Formik with Yup</h1>

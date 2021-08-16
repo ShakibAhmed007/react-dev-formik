@@ -29,14 +29,12 @@ const BasicFormValidationByYup = () => {
       files: Yup.array().min(1, 'select at least 1 file')
     }),
     onSubmit: values => {
-      console.log(values);
       const file_properties = {
         fileName: values.file.name,
         type: values.file.type,
         size: `${values.file.size} bytes`
       };
-      alert(JSON.stringify(values, null, 2));
-      alert(JSON.stringify(file_properties, null, 2));
+      console.log(values);
     }
   });
   return (

@@ -27,7 +27,14 @@ const BasicFormValidationByYup = () => {
       file: Yup.mixed().required()
     }),
     onSubmit: values => {
+      console.log(values);
+      const file_properties = {
+        fileName: values.file.name,
+        type: values.file.type,
+        size: `${values.file.size} bytes`
+      };
       alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(file_properties, null, 2));
     }
   });
   return (
@@ -88,7 +95,9 @@ const BasicFormValidationByYup = () => {
         id="file"
         name="file"
         type="file"
-        {...formik.getFieldProps('file')}
+        onChange={event => {
+          formik.setFieldValue('file', event.currentTarget.files[0]);
+        }}
       />
       <br />
       <button type="submit">Submit</button>

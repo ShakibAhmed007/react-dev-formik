@@ -14,7 +14,7 @@ const ImageUpload = () => {
     }),
     onSubmit: values => {
       console.log({
-        file: values.image.src,
+        file: values.image,
         fileName: values.image.name,
         type: values.image.type,
         size: `${values.image.size} bytes`

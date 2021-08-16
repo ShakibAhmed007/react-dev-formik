@@ -10,7 +10,8 @@ const BasicFormValidationByYup = () => {
       address: '',
       country: '',
       toggleCheckbox: false,
-      file: null
+      file: null,
+      files: []
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -24,7 +25,8 @@ const BasicFormValidationByYup = () => {
         .required('Required'),
       country: Yup.string().required('Country is Required'),
       toggleCheckbox: Yup.boolean(),
-      file: Yup.mixed().required()
+      file: Yup.mixed().required(),
+      files: Yup.array().min(1, 'select at least 1 file')
     }),
     onSubmit: values => {
       console.log(values);
@@ -98,6 +100,19 @@ const BasicFormValidationByYup = () => {
         onChange={event => {
           formik.setFieldValue('file', event.currentTarget.files[0]);
         }}
+      />
+      <br />
+      <label for="file">Multiple File:</label>
+      <input
+        id="files"
+        name="files"
+        type="file"
+        onChange={event => {
+          const files = event.target.files;
+          let myFiles = Array.from(files);
+          formik.setFieldValue('files', myFiles);
+        }}
+        multiple
       />
       <br />
       <button type="submit">Submit</button>

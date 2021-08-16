@@ -6,15 +6,15 @@ const BasicFormValidationByYup = () => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
-      lastName: '',
-      email: ''
+      email: '',
+      address: ''
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
         .max(15, 'Must be 15 characters or less')
         .required('Required'),
-      lastName: Yup.string()
-        .max(20, 'Must be 20 characters or less')
+      address: Yup.string()
+        .max(250, 'Must be 250 characters or less')
         .required('Required'),
       email: Yup.string()
         .email('Invalid email address')
@@ -37,15 +37,14 @@ const BasicFormValidationByYup = () => {
         <div>{formik.errors.firstName}</div>
       ) : null}
       <br />
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        {...formik.getFieldProps('lastName')}
+      <label htmlFor="address">Address</label>
+      <textarea
+        id="address"
+        name="address"
+        {...formik.getFieldProps('address')}
       />
-      {formik.touched.lastName && formik.errors.lastName ? (
-        <div>{formik.errors.lastName}</div>
+      {formik.touched.address && formik.errors.address ? (
+        <div>{formik.errors.address}</div>
       ) : null}
       <br />
       <label htmlFor="email">Email Address</label>

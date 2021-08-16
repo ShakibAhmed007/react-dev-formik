@@ -13,7 +13,7 @@ export default function App() {
       <h1>Formik with Yup</h1>
       <BasicFormValidationByYup />
       <hr />
-      <h1>Image Upload</h1>
+      <h1>Image upload & preview</h1>
       <ImageUpload />
     </div>
   );

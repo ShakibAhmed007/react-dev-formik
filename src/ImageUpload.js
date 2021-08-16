@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const BasicFormValidationByYup = () => {
+const ImageUpload = () => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -121,4 +121,4 @@ const BasicFormValidationByYup = () => {
   );
 };
 
-export default BasicFormValidationByYup;
+export default ImageUpload;

@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import BasicForm from './BasicForm';
 import BasicFormValidationByYup from './BasicFormValidationByYup';
+import ImageUpload from './ImageUpload';
 
 export default function App() {
   return (
@@ -11,6 +12,8 @@ export default function App() {
       <hr />
       <h1>Formik with Yup</h1>
       <BasicFormValidationByYup />
+      <h1>Image Upload</h1>
+      <ImageUpload />
     </div>
   );
 }

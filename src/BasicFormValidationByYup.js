@@ -9,7 +9,8 @@ const BasicFormValidationByYup = () => {
       email: '',
       address: '',
       country: '',
-      toggleCheckbox: false
+      toggleCheckbox: false,
+      file: null
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -22,7 +23,8 @@ const BasicFormValidationByYup = () => {
         .max(250, 'Must be 250 characters or less')
         .required('Required'),
       country: Yup.string().required('Country is Required'),
-      toggleCheckbox: Yup.boolean()
+      toggleCheckbox: Yup.boolean(),
+      file: Yup.mixed().required()
     }),
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
@@ -79,6 +81,14 @@ const BasicFormValidationByYup = () => {
         id="toggleCheckbox"
         name="toggleCheckbox"
         {...formik.getFieldProps('toggleCheckbox')}
+      />
+      <br />
+      <label for="file">File upload</label>
+      <input
+        id="file"
+        name="file"
+        type="file"
+        {...formik.getFieldProps('file')}
       />
       <br />
       <button type="submit">Submit</button>

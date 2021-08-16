@@ -8,6 +8,7 @@ const BasicFormValidationByYup = () => {
       firstName: '',
       email: '',
       address: '',
+      country: '',
       toggleCheckbox: false
     },
     validationSchema: Yup.object({
@@ -20,6 +21,7 @@ const BasicFormValidationByYup = () => {
       address: Yup.string()
         .max(250, 'Must be 250 characters or less')
         .required('Required'),
+      country: Yup.string().required('Country is Required'),
       toggleCheckbox: Yup.boolean()
     }),
     onSubmit: values => {
@@ -58,6 +60,17 @@ const BasicFormValidationByYup = () => {
       />
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
+      ) : null}
+      <br />
+
+      <select id="country" name="country" {...formik.getFieldProps('country')}>
+        <option value="" label="Select country" />
+        <option value="BD" label="BD" />
+        <option value="NOR" label="NOR" />
+        <option value="SW" label="SW" />
+      </select>
+      {formik.touched.country && formik.errors.country ? (
+        <div>{formik.errors.country}</div>
       ) : null}
       <br />
       <label htmlFor="toggleCheckbox">Agree</label>
